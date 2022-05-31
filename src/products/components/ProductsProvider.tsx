@@ -1,16 +1,17 @@
 import React, { createContext, useContext } from "react";
 import { Actions, Product } from "../../types";
 import useProductState from "../useProductsState";
-import { ProductList } from "./ProductList";
 
 interface ContextType {
    products: Product[],
+   page: number,
+   per_page: number,
    productsDispatch: React.Dispatch<Actions>
 }
 const ProductsContext = createContext<ContextType | undefined>(undefined);
 export const ProductsProvider: React.FC = ({ children }) => {
-   const [{ products, initialized }, productsDispatch] = useProductState();
-   return <ProductsContext.Provider value={{ products, productsDispatch }}>
+   const [{ initialized, ...other }, productsDispatch] = useProductState();
+   return <ProductsContext.Provider value={{ productsDispatch, ...other }}>
       {!initialized ? <div>...loading</div>
          :
          children

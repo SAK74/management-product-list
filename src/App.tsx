@@ -1,7 +1,5 @@
 import { Box } from "@mui/material";
-import { InputField } from "./products/components/InputField";
-import { ProductList } from "./products/components/ProductList";
-import { ProductsProvider } from "./products/components/ProductsProvider";
+import { ProductList, ProductsProvider, InputField } from './products/components';
 import "./styles.css";
 
 export default function App() {

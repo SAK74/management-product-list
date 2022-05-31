@@ -10,4 +10,8 @@ interface ActionFetch {
    type: "fetch",
    payload: Product[] | Product
 }
-export type Actions = ActionFetch;
+interface ActionChangePage {
+   type: 'pagination',
+   payload?: Partial<Record<"page" | "per_page", number>>
+}
+export type Actions = ActionFetch | ActionChangePage;
