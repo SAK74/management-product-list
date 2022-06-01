@@ -7,6 +7,7 @@ import SearchIcon from '@mui/icons-material/ContentPasteSearch';
 
 export function InputField() {
    const { products } = useProductContext();
+   //memorization initial length of array
    const [length] = useState(products.length);
    const [input, setInput] = useState(0);
    const { productsDispatch: dispatch } = useProductContext();
@@ -16,7 +17,7 @@ export function InputField() {
          setInput(parseInt(value) | 0);
       }
    }
-   const handleClick = () => {
+   const handleSearch = () => {
       getData<Product>({ id: input })
          .then(data => dispatch({ type: 'fetch', payload: data }));
    }
@@ -32,7 +33,7 @@ export function InputField() {
       <IconButton
          children={<SearchIcon />}
          disabled={!input || input > length}
-         onClick={handleClick}
+         onClick={handleSearch}
       />
    </Box>
 }

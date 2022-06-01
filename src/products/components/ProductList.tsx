@@ -21,7 +21,6 @@ export function ProductList() {
       dispatch({ type: 'pagination', payload: { page: page + 1 } });
    }
    const handlePerPage = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
-      console.log(value);
       dispatch({ type: 'pagination', payload: { per_page: Number(value) } });
    }
    return (
