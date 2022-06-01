@@ -6,7 +6,6 @@ const TableCell = styled(MuiTableCell)({
    color: "white"
 });
 export const SimpleProduct: React.FC<{ product: Product }> = ({ product }) => {
-   // console.log(product);
    return (
       <>
          <TableCell children={product.id} />
