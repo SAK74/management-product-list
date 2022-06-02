@@ -37,19 +37,19 @@ export function ProductList() {
             <TableBody>
                {rowsOfItems}
             </TableBody>
+            <TableFooter>
+               <TableRow>
+                  <TablePagination
+                     count={products.length}
+                     onPageChange={handlePageChange}
+                     page={page}
+                     rowsPerPage={per_page}
+                     rowsPerPageOptions={[5, 10, { label: "All", value: -1 }]}
+                     onRowsPerPageChange={handlePerPage}
+                  />
+               </TableRow>
+            </TableFooter>
          </Table>
-         <TableFooter>
-            <TableRow>
-               <TablePagination
-                  count={products.length}
-                  onPageChange={handlePageChange}
-                  page={page}
-                  rowsPerPage={per_page}
-                  rowsPerPageOptions={[5, 10, { label: "All", value: -1 }]}
-                  onRowsPerPageChange={handlePerPage}
-               />
-            </TableRow>
-         </TableFooter>
       </TableContainer>
    );
 }
