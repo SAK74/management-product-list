@@ -15,6 +15,8 @@
     "react-scripts": "4.0.0"
   },
   "devDependencies": {
+    "@testing-library/react": "^13.3.0",
+    "@types/jest": "^28.1.1",
     "@types/react": "^17.0.45",
     "@types/react-dom": "^18.0.5",
     "typescript": "4.1.3"
@@ -23,6 +25,7 @@
     "start": "react-scripts start",
     "prestart": "del tsconfig.json",
     "build": "react-scripts build",
+    "pretest": "del tsconfig.json",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },

@@ -13,5 +13,9 @@ export default function getData<T>(params?: Partial<UserParam>): Promise<T> {
    if (params) {
       defaultConfig.params = params;
    }
-   return axios(defaultConfig).then(resp => resp.data.data);
+   return axios(defaultConfig)
+      .then(resp => resp.data.data)
+      .catch((err: Error) => {
+         throw new Error(err.message);
+      });
 }
