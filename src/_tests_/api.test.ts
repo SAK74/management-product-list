@@ -1,3 +1,4 @@
+import { expectTypeOf } from 'expect-type';
 import getData from '../getData';
 import { Product } from '../types';
 
@@ -8,7 +9,7 @@ describe("test API", () => {
    });
    it("should be Object", () => {
       getData<Product>({ id: parseInt((Math.random() * 11).toString()) })
-         .then(data => expect(data).toBeInstanceOf(Object));
+         .then(data => expectTypeOf(data).toEqualTypeOf<Product>());
    });
    it('should be specific length', () => {
       const specLength = Math.round(Math.random() * 11);

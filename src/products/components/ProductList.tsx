@@ -2,7 +2,7 @@ import {
    Table, TableBody, TableCell, TableContainer, TableHead,
    TableRow, Paper, TableFooter, TablePagination
 } from "@mui/material";
-import { ChangeEvent, MouseEvent } from "react";
+import { ChangeEventHandler, MouseEvent } from "react";
 import { useProductContext } from "./ProductsProvider";
 import { SimpleProduct, SidePanel } from './';
 
@@ -20,7 +20,7 @@ export function ProductList() {
    const handlePageChange = (ev: MouseEvent | null, page: number) => {
       dispatch({ type: 'pagination', payload: { page: page + 1 } });
    }
-   const handlePerPage = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
+   const handlePerPage: ChangeEventHandler<HTMLInputElement> = ({ target: { value } }) => {
       dispatch({ type: 'pagination', payload: { per_page: Number(value), page: 1 } });
    }
    return (

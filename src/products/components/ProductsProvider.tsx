@@ -9,6 +9,7 @@ interface ContextType {
    productsDispatch: React.Dispatch<Actions>
 }
 const ProductsContext = createContext<ContextType | undefined>(undefined);
+
 export const ProductsProvider: React.FC = ({ children }) => {
    const [{ initialized, ...other }, productsDispatch] = useProductState();
    return <ProductsContext.Provider value={{ productsDispatch, ...other }}>
